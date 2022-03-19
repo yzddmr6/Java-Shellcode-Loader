@@ -2,20 +2,30 @@
 
 基于Java实现的ShellCode加载器，兼容32位及64位平台。
 
-核心代码来源于：[JEShell: An OceanLotus (APT32) Backdoor](https://norfolkinfosec.com/jeshell-an-oceanlotus-apt32-backdoor/)
+核心原理是利用Jna来调用Windows API，实现shellcode的注入。
 
 运行环境：Jre >= 1.5
 
+注：本项目已经内置在[yzddmr6/As-Exploits](https://github.com/yzddmr6/As-Exploits)的ShellCodeLoader模块中。
+
 ## 编译
 
-```
-mvn package -DskipTests
-```
+当前版本使用的jna经过魔改，不支持maven编译。
+
+需要使用idea的构建工件功能进行打包，具体方法请咨询百度。
 
 ## 使用
 
+默认会随机注入32位进程，请使用32位的shellcode
+
 ```
 java -jar ShellcodeLoader.jar shellcode_hex
+```
+
+注入x64位shellcode
+
+```
+java -jar ShellcodeLoader.jar --x64 shellcode_hex
 ```
 
 ## 举例
@@ -53,3 +63,11 @@ java -jar ShellcodeLoader.jar fce88f0000006089e531d2648b5xxxx
 ```
 
 即可收到反弹的Meterpreter
+
+## 免杀
+
+![image-20211205205857990](README.assets/image-20211205205857990.png)
+
+## 注意事项
+
+本项目仅供合法的渗透测试以及爱好者参考学习，请勿用于非法用途，否则自行承担相关责任。
