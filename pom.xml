@@ -28,7 +28,13 @@
 <!--            <artifactId>jna-platform</artifactId>-->
 <!--            <version>4.1.0</version>-->
 <!--        </dependency>-->
-
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>1.2.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/tinyjna.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -60,9 +66,9 @@
                             <mainClass>asexploits.ShellcodeLoader</mainClass>
                         </manifest>
                     </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+                    <descriptors>
+                        <descriptor>src/main/resources/assembly.xml</descriptor>
+                    </descriptors>
                 </configuration>
                 <executions>
                     <execution>
